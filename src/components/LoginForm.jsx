@@ -1,5 +1,12 @@
 import { useForm } from "react-hook-form";
-import { buttonStyle, errorStyle, inputStyle, pTagStyle } from "../styles/labelStyles";
+import {
+  buttonStyle,
+  errorStyle,
+  inputStyle,
+  pTagStyle,
+} from "../styles/labelStyles";
+
+import { loginApi } from "../constants/consultasApi";
 
 export default function LoginForm() {
   const {
@@ -8,7 +15,10 @@ export default function LoginForm() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data); // aquí se debe hacer la petición al servidor
+  const onSubmit = async (data) => {
+    const response = await loginApi(data);
+    console.log(response);
+  }; // aquí se debe hacer la petición al servidor
 
   return (
     <div className="flex-auto ">
@@ -16,13 +26,25 @@ export default function LoginForm() {
         <div className="flex flex-col">
           <div className="flex gap-4 p-2">
             <p className={pTagStyle}>Email:</p>
-            <input placeholder="email" className={inputStyle} {...register("email", { required: true })} />
-            {errors.email && <span className={errorStyle}>This field is required</span>}
+            <input
+              placeholder="email"
+              className={inputStyle}
+              {...register("email", { required: true })}
+            />
+            {errors.email && (
+              <span className={errorStyle}>This field is required</span>
+            )}
           </div>
           <div className="flex gap-4 p-2">
             <p className={pTagStyle}>Contraseña:</p>
-            <input placeholder="password" className={inputStyle} {...register("password", { required: true })} />
-            {errors.password && <span className={errorStyle}>This field is required</span>}
+            <input
+              placeholder="password"
+              className={inputStyle}
+              {...register("password", { required: true })}
+            />
+            {errors.password && (
+              <span className={errorStyle}>This field is required</span>
+            )}
           </div>
 
           <div className="w-full">
