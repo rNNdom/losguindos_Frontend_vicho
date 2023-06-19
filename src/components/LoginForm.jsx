@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { buttonStyle, errorStyle, inputStyle, pTagStyle } from "../styles/labelStyles";
 
 export default function LoginForm() {
   const {
@@ -14,19 +15,19 @@ export default function LoginForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col">
           <div className="flex gap-4 p-2">
-            <p>Email:</p>
-            <input placeholder="email" className="w-full" {...register("email", { required: true })} />
-            {errors.email && <span>This field is required</span>}
+            <p className={pTagStyle}>Email:</p>
+            <input placeholder="email" className={inputStyle} {...register("email", { required: true })} />
+            {errors.email && <span className={errorStyle}>This field is required</span>}
           </div>
           <div className="flex gap-4 p-2">
-            <p>Contraseña:</p>
-            <input placeholder="password" className="w-full" {...register("password", { required: true })} />
-            {errors.password && <span>This field is required</span>}
+            <p className={pTagStyle}>Contraseña:</p>
+            <input placeholder="password" className={inputStyle} {...register("password", { required: true })} />
+            {errors.password && <span className={errorStyle}>This field is required</span>}
           </div>
 
           <div className="w-full">
             <div className="flex justify-center items-center">
-              <button type="submit" className="flex border bg-blue-500 font-medium w-fit items-center justify-center">
+              <button type="submit" className={buttonStyle}>
                 Iniciar Sesión
               </button>
             </div>
