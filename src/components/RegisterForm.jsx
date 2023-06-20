@@ -106,6 +106,10 @@ export default function RegisterForm() {
           </div>
         </div>
       </form>
+
+      <a href="/" className="flex justify-center items-center">
+        <p className="text-blue-500 font-medium">Iniciar sesión</p>
+      </a>
     </div>
   );
 }

@@ -58,6 +58,8 @@ export default function LoginForm({ setToken }) {
           </div>
         </div>
       </form>
+
+      <a href="/register">Registrarse</a>
     </div>
   );
 }
