@@ -5,10 +5,11 @@ import {
   inputStyle,
   pTagStyle,
 } from "../styles/labelStyles";
-
 import { loginApi } from "../constants/consultasApi";
+import React from "react";
+import PropTypes from "prop-types";
 
-export default function LoginForm() {
+export default function LoginForm({ setToken }) {
   const {
     register,
     handleSubmit,
@@ -18,6 +19,7 @@ export default function LoginForm() {
   const onSubmit = async (data) => {
     const response = await loginApi(data);
     console.log(response);
+    setToken(response);
   }; // aquí se debe hacer la petición al servidor
 
   return (
@@ -59,3 +61,7 @@ export default function LoginForm() {
     </div>
   );
 }
+
+LoginForm.propTypes = {
+  setToken: PropTypes.func.isRequired,
+};
