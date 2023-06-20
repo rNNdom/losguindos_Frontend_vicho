@@ -1,5 +1,5 @@
-// const BASE_URL = "http://localhost:8080";
-const BASE_URL = "http://200.13.4.226:8080";
+const BASE_URL = "http://localhost:8080";
+// const BASE_URL = "http://200.13.4.226:8080";
 
 export async function loginApi(_data) {
   console.log(_data);
